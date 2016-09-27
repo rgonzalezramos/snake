@@ -10,9 +10,11 @@ public class Window extends JFrame {
         GamePanel panel = new GamePanel();
         panel.setVisible(true);
         add(panel);
+        InputManager input = new InputManager();
+        addKeyListener(input);
 
-        Game game = new Game(40, 30, panel);
-        new Thread(game).start();
+        GameEngine gameEngine = new GameEngine(40, 30, panel, input);
+        new Thread(gameEngine).start();
 
         setVisible(true);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
