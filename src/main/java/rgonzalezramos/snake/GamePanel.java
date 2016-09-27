@@ -36,5 +36,15 @@ public class GamePanel extends JPanel {
         Rect rect = converter.rect(state.food);
         g.setColor(Color.RED);
         g.fillRect(rect.x, rect.y, rect.width, rect.height);
+
+        // Paint snake
+
+        for (Location section : state.snake) {
+            Rect r = converter.rect(section);
+            g.setColor(Color.CYAN);
+            g.fillRect(r.x, r.y, r.width, r.height);
+            g.setColor(Color.BLACK);
+            g.drawRect(r.x, r.y, r.width, r.height);
+        }
     }
 }

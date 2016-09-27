@@ -1,5 +1,7 @@
 package rgonzalezramos.snake;
 
+import java.util.LinkedList;
+
 public class Game {
 
     private final int width;
@@ -11,6 +13,11 @@ public class Game {
         this.height = height;
         this.state = new GameState();
         this.state.food = Location.abs(width / 2, height / 2);
+        this.state.snake = new LinkedList<Location>();
+
+        for (int i = 0; i < 4; i++) {
+            this.state.snake.add(Location.abs(i + 2, 2));
+        }
     }
 
     public GameState getState() {
