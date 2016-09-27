@@ -7,7 +7,8 @@ public class Window extends JFrame {
         super();
         setSize(width, height);
 
-        GamePanel panel = new GamePanel();
+        Game game = new Game(40, 30);
+        GamePanel panel = new GamePanel(game);
         panel.setVisible(true);
         add(panel);
 
