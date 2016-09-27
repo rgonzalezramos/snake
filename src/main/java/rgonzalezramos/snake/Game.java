@@ -2,33 +2,40 @@ package rgonzalezramos.snake;
 
 import java.util.LinkedList;
 
-public class Game {
-
-    private final int width;
-    private final int height;
+public class Game implements Runnable {
+    private final GamePanel panel;
     private GameState state;
 
-    public Game(int width, int height) {
-        this.width = width;
-        this.height = height;
+    public Game(int width, int height, GamePanel panel) {
+        this.panel = panel;
         this.state = new GameState();
+        this.state.width = width;
+        this.state.height = height;
         this.state.food = Location.abs(width / 2, height / 2);
-        this.state.snake = new LinkedList<Location>();
+        this.state.snake = new LinkedList<>();
+        this.state.direction = Direction.DOWN;
 
         for (int i = 0; i < 4; i++) {
             this.state.snake.add(Location.abs(i + 2, 2));
         }
     }
 
-    public GameState getState() {
-        return this.state;
-    }
+    public void run() {
+        while (true) {
 
-    public int getWidth() {
-        return width;
-    }
+            // Update
+            state.snake.pop();
+            state.snake.add(state.snake.getLast().move(state.direction));
 
-    public int getHeight() {
-        return height;
+            // Draw
+            panel.repaint(state.copy());
+
+            // Sleep
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

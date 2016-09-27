@@ -7,10 +7,12 @@ public class Window extends JFrame {
         super();
         setSize(width, height);
 
-        Game game = new Game(40, 30);
-        GamePanel panel = new GamePanel(game);
+        GamePanel panel = new GamePanel();
         panel.setVisible(true);
         add(panel);
+
+        Game game = new Game(40, 30, panel);
+        new Thread(game).start();
 
         setVisible(true);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

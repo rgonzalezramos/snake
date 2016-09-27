@@ -12,4 +12,12 @@ public class Location {
     public static Location abs(int x, int y) {
         return new Location(x, y);
     }
+
+    public Location move(Direction direction) {
+        return new Location(x + direction.x, y + direction.y);
+    }
+
+    public Location copy() {
+        return new Location(x, y);
+    }
 }

@@ -5,28 +5,35 @@ import java.awt.*;
 
 public class GamePanel extends JPanel {
 
-    private final Game game;
+    private GameState state;
 
-    public GamePanel(Game game) {
-        super();
-        this.game = game;
-    }
+
+
+
+
+
+
 
     @Override
     public void paint(Graphics g_) {
         super.paint(g_);
 
+
+
+        if (this.state == null) return;
+
+        LocationConverter converter = LocationConverter.create(
+                state.width, state.height,
+                getWidth(), getHeight());
+
         Graphics2D g = (Graphics2D) g_;
 
         // TODO reuse this
-        LocationConverter converter = LocationConverter.create(
-                game.getWidth(), game.getHeight(),
-                getWidth(), getHeight());
+
 
         g.setColor(Color.BLACK);
         g.fillRect(0, 0, getWidth(), getHeight());
 
-        GameState state = game.getState();
 
         // Paint score
         g.setColor(Color.GREEN);
@@ -46,5 +53,10 @@ public class GamePanel extends JPanel {
             g.setColor(Color.BLACK);
             g.drawRect(r.x, r.y, r.width, r.height);
         }
+    }
+
+    public void repaint(GameState state) {
+        this.state = state;
+        this.repaint();
     }
 }
