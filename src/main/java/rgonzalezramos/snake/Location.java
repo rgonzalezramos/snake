@@ -13,9 +13,6 @@ public class Location {
         return new Location(x, y);
     }
 
-    public Location move(Direction direction) {
-        return new Location(x + direction.x, y + direction.y);
-    }
 
     public Location copy() {
         return new Location(x, y);
@@ -38,5 +35,26 @@ public class Location {
         int result = x;
         result = 31 * result + y;
         return result;
+    }
+
+    public Location move(Direction direction, int width, int height) {
+        Location location = new Location(themod(x + direction.x, width), themod(y + direction.y, height));
+        System.out.println(location);
+        return location;
+    }
+
+    private int themod(int x, int width) {
+        if (x >= 0) {
+            return x % width;
+        }
+        return (width + x);
+    }
+
+    @Override
+    public String toString() {
+        return "Location{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
     }
 }

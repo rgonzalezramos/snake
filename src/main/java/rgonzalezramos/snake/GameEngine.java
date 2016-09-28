@@ -24,19 +24,19 @@ public class GameEngine implements Runnable {
     }
 
     public void run() {
-        int sleepTime = 250;
+        int sleepTime = 200;
         while (true) {
 
             // Update
             if (state.snake.getLast().equals(state.food)) {
                 state.food = Location.abs(random.nextInt(state.width), random.nextInt(state.height));
                 state.score += 1;
-                Math.max(0, sleepTime -= 10);
+                sleepTime = (int) (sleepTime * 0.9);
             } else {
                 state.snake.pop();
             }
 
-            state.snake.add(state.snake.getLast().move(input.getDirection()));
+            state.snake.add(state.snake.getLast().move(input.getDirection(), state.width, state.height));
 
             // Draw
             panel.repaint(state.copy());
