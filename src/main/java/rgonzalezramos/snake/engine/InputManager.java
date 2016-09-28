@@ -1,4 +1,4 @@
-package rgonzalezramos.snake;
+package rgonzalezramos.snake.engine;
 
 import rgonzalezramos.snake.common.Direction;
 

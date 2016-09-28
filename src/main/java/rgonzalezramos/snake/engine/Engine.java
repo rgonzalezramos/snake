@@ -1,4 +1,4 @@
-package rgonzalezramos.snake;
+package rgonzalezramos.snake.engine;
 
 public class Engine implements Runnable {
     private final SnakeGame game;
@@ -13,7 +13,7 @@ public class Engine implements Runnable {
         while (true) {
             game.update(input.getDirection());
             game.repaint();
-            Thread.sleep(30 + Math.max(0, (100 - 10 * game.speed())));
+            Thread.sleep(30 + Math.max(0, (100 - 5 * game.speed())));
         }
     }
 

@@ -1,5 +1,9 @@
 package rgonzalezramos.snake;
 
+import rgonzalezramos.snake.engine.Engine;
+import rgonzalezramos.snake.engine.InputManager;
+import rgonzalezramos.snake.engine.SnakeGame;
+
 import javax.swing.*;
 
 public class Launcher {
