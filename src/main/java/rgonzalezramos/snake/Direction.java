@@ -13,4 +13,8 @@ public class Direction {
         this.x = x;
         this.y = y;
     }
+
+    public boolean isOppositeOf(Direction o) {
+        return x == -o.x && y == -o.y;
+    }
 }

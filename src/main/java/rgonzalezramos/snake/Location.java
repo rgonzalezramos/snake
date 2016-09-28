@@ -1,5 +1,7 @@
 package rgonzalezramos.snake;
 
+import rgonzalezramos.snake.helpers.Modulus;
+
 public class Location {
     final int x;
     final int y;
@@ -9,12 +11,17 @@ public class Location {
         this.y = y;
     }
 
-    public static Location abs(int x, int y) {
+    public Location copy() {
         return new Location(x, y);
     }
 
+    public Location move(Direction direction, int width, int height) {
+        return new Location(
+                Modulus.of(x + direction.x, width),
+                Modulus.of(y + direction.y, height));
+    }
 
-    public Location copy() {
+    public static Location abs(int x, int y) {
         return new Location(x, y);
     }
 
@@ -35,19 +42,6 @@ public class Location {
         int result = x;
         result = 31 * result + y;
         return result;
-    }
-
-    public Location move(Direction direction, int width, int height) {
-        Location location = new Location(themod(x + direction.x, width), themod(y + direction.y, height));
-        System.out.println(location);
-        return location;
-    }
-
-    private int themod(int x, int width) {
-        if (x >= 0) {
-            return x % width;
-        }
-        return (width + x);
     }
 
     @Override
