@@ -1,7 +1,7 @@
 package rgonzalezramos.snake.common;
 
 import rgonzalezramos.snake.entities.Grid;
-import rgonzalezramos.snake.helpers.Modulus;
+import rgonzalezramos.snake.helpers.Modulo;
 
 import java.util.Random;
 
@@ -20,8 +20,8 @@ public class Location {
 
     public Location move(Direction direction, Grid grid) {
         return new Location(
-                Modulus.of(x + direction.x, grid.width),
-                Modulus.of(y + direction.y, grid.height));
+                Modulo.of(x + direction.x, grid.width),
+                Modulo.of(y + direction.y, grid.height));
     }
 
     public static Location abs(int x, int y) {
