@@ -1,4 +1,4 @@
-package rgonzalezramos.snake;
+package rgonzalezramos.snake.common;
 
 public class LocationConverter {
 

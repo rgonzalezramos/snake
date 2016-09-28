@@ -1,6 +1,9 @@
-package rgonzalezramos.snake;
+package rgonzalezramos.snake.common;
 
+import rgonzalezramos.snake.entities.Grid;
 import rgonzalezramos.snake.helpers.Modulus;
+
+import java.util.Random;
 
 public class Location {
     final int x;
@@ -15,10 +18,10 @@ public class Location {
         return new Location(x, y);
     }
 
-    public Location move(Direction direction, int width, int height) {
+    public Location move(Direction direction, Grid grid) {
         return new Location(
-                Modulus.of(x + direction.x, width),
-                Modulus.of(y + direction.y, height));
+                Modulus.of(x + direction.x, grid.width),
+                Modulus.of(y + direction.y, grid.height));
     }
 
     public static Location abs(int x, int y) {
@@ -50,5 +53,11 @@ public class Location {
                 "x=" + x +
                 ", y=" + y +
                 '}';
+    }
+
+    private final static Random random = new Random(System.currentTimeMillis());
+
+    public static Location random(int width, int height) {
+        return Location.abs(random.nextInt(width), random.nextInt(height));
     }
 }

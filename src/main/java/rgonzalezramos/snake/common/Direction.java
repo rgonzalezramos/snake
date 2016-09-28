@@ -1,4 +1,4 @@
-package rgonzalezramos.snake;
+package rgonzalezramos.snake.common;
 
 public class Direction {
     public static final Direction UP = new Direction(0, -1);

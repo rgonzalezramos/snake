@@ -1,5 +1,7 @@
 package rgonzalezramos.snake;
 
+import rgonzalezramos.snake.common.Direction;
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 

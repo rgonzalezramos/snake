@@ -1,6 +1,8 @@
 package rgonzalezramos.snake;
 
 import org.junit.Test;
+import rgonzalezramos.snake.common.Direction;
+import rgonzalezramos.snake.common.Location;
 
 import static org.junit.Assert.assertEquals;
 
