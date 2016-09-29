@@ -1,7 +1,7 @@
 package rgonzalezramos.snake;
 
 import rgonzalezramos.snake.engine.Engine;
-import rgonzalezramos.snake.engine.InputManager;
+import rgonzalezramos.snake.engine.BufferedInputManager;
 import rgonzalezramos.snake.engine.SnakeGame;
 
 import javax.swing.*;
@@ -10,7 +10,7 @@ public class Launcher {
     public static void main(String[] args) throws InterruptedException {
         SnakeGame game = SnakeGame.create(32, 24);
 
-        InputManager input = new InputManager();
+        BufferedInputManager input = new BufferedInputManager();
 
         JFrame frame = new JFrame();
         frame.setSize(640, 480);

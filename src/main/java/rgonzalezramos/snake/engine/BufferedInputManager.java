@@ -4,36 +4,37 @@ import rgonzalezramos.snake.common.Direction;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.LinkedList;
 
-public class InputManager implements KeyListener {
+public class BufferedInputManager implements KeyListener {
 
-    private Direction direction = Direction.RIGHT;
+    private LinkedList<Direction> buffer = new LinkedList<>();
 
     public Direction getDirection() {
-        return direction;
+        return buffer.isEmpty() ? null : buffer.pop();
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {
             case KeyEvent.VK_LEFT:
-                direction = direction.LEFT;
+                buffer.add(Direction.LEFT);
                 break;
             case KeyEvent.VK_RIGHT:
-                direction = direction.RIGHT;
+                buffer.add(Direction.RIGHT);
                 break;
             case KeyEvent.VK_UP:
-                direction = direction.UP;
+                buffer.add(Direction.UP);
                 break;
             case KeyEvent.VK_DOWN:
-                direction = direction.DOWN;
+                buffer.add(Direction.DOWN);
                 break;
         }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        // NO OP
+
     }
 
     @Override

@@ -2,9 +2,9 @@ package rgonzalezramos.snake.engine;
 
 public class Engine implements Runnable {
     private final SnakeGame game;
-    private final InputManager input;
+    private final BufferedInputManager input;
 
-    public Engine(SnakeGame game, InputManager input) {
+    public Engine(SnakeGame game, BufferedInputManager input) {
         this.game = game;
         this.input = input;
     }

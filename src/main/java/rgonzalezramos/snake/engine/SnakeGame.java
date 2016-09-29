@@ -43,7 +43,7 @@ public class SnakeGame extends JPanel {
             score.increment();
         }
 
-        if (!input.isOppositeOf(snake.direction)) {
+        if (input != null && !input.isOppositeOf(snake.direction)) {
             snake.direction = input;
         }
 
