@@ -14,10 +14,6 @@ public class Location {
         this.y = y;
     }
 
-    public Location copy() {
-        return new Location(x, y);
-    }
-
     public Location move(Direction direction, Grid grid) {
         return new Location(
                 Modulo.of(x + direction.x, grid.width),

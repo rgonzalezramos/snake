@@ -10,19 +10,19 @@ public class LocationConverter {
         this.cellHeight = cellHeight;
     }
 
-    public static LocationConverter create(int uWidth, int uHeight, int pWidth, int pHeight) {
-        return new LocationConverter(
-                pWidth / uWidth,
-                pHeight / uHeight
-        );
-    }
-
     public Rect rect(Location location) {
         return new Rect(
                 location.x * cellWidth,
                 location.y * cellHeight,
                 cellWidth,
                 cellHeight
+        );
+    }
+
+    public static LocationConverter create(int uWidth, int uHeight, int pWidth, int pHeight) {
+        return new LocationConverter(
+                pWidth / uWidth,
+                pHeight / uHeight
         );
     }
 }
